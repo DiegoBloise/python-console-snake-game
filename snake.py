@@ -1,8 +1,10 @@
 from os import system
+import platform
 from time import sleep
 from random import randint
 import keyboard
 
+clear = ""
 width = 40
 height = 20
 gameOver = False
@@ -17,11 +19,11 @@ tailY = list(range(100))
 
 
 def draw():
-    
+
     # draw game screen
 
-    system("cls")
-    
+    system(clear)
+
     print("\033[1;37m")
 
     for y in range(height+2):
@@ -116,11 +118,11 @@ def logic(gameMode):
             snakeXY[1] = height
         elif snakeXY[1] > height:
             snakeXY[1] = 1
-    
+
     for i in range(totalTail):
         if tailX[i] == snakeXY[0] and tailY[i] == snakeXY[1]:
             gameOver = True
-    
+
     # if snake eat the fruit
     if snakeXY[0] == fruitXY[0] and snakeXY[1] == fruitXY[1]:
         totalTail += 1
@@ -135,10 +137,14 @@ def logic(gameMode):
 
 
 def main():
-    
+    if platform.system() == "Windows":
+        clear = "cls"
+    else:
+        clear = "clear"
+
     global gameOver
-    
-    system("cls")
+
+    system(clear)
     print(f" {'-='*20}")
     print(f"|{'SNAKE GAME':^40}|")
     print(f" {'-='*20}")

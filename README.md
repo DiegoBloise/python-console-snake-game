@@ -1,4 +1,4 @@
-# :snake: Python-Console-Snake-Game (G)old
+# :snake: Python Console Snake Game (G)old
 One of my old projects when I started to learning how to programming and make games, old, but gold 👍.
 ---
 <div align="center">
